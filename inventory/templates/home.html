@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome to Poultry IMS</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      color: #f5f5f5; /* Light text for dark background */
+      font-weight: bold; /* All text bold by default */
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("{% static 'images/chickens-2522623_1280.jpg' %}") center/cover no-repeat;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      color: #ffffff; /* Bright header on dark background */
+      margin-bottom: 5px;
+      font-weight: 900; /* Extra bold */
+    }
+
+    .description {
+      color: #f0f0f0; /* Light description text */
+      margin-bottom: 30px;
+    }
+
+    nav {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+
+    @media (min-width: 600px) {
+      nav {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .nav-card {
+      border: 2px solid #fff; /* White border for better contrast */
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      text-decoration: none;
+      background-color: rgba(231, 223, 223, 0.945); /* Light card background for clarity */
+      color: #2c3e50; /* Dark text inside cards */
+      transition: all 0.2s;
+      font-weight: bold;
+    }
+
+    .nav-card:hover {
+      background-color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-card i {
+      font-size: 24px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .breed { color: #3498db; }
+    .feed { color: #2ecc71; }
+    .medication { color: #e74c3c; }
+    .feeding { color: #f39c12; }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #ccc;
+      color: #ddd;
+      font-size: 14px;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <header>
+    <h1><i class="fas fa-egg"></i> Poultry IMS</h1>
+    <p class="description">Manage your poultry farm inventory</p>
+  </header>
+
+  <nav>
+    <a href="{% url 'breed_list' %}" class="nav-card">
+      <i class="fas fa-dove breed"></i>
+      <h3>Manage Breeds</h3>
+      <p>View and edit poultry breeds</p>
+    </a>
+    <a href="{% url 'feedtype_list' %}" class="nav-card">
+      <i class="fas fa-crow feed"></i>
+      <h3>Manage Feed Types</h3>
+      <p>Organize poultry feed</p>
+    </a>
+    <a href="{% url 'medicationdrug_list' %}" class="nav-card">
+      <i class="fas fa-pills medication"></i>
+      <h3>Manage Medications</h3>
+      <p>Track drugs and vaccines</p>
+    </a>
+    <a href="{% url 'feedingrecord_list' %}" class="nav-card">
+      <i class="fas fa-clipboard-list feeding"></i>
+      <h3>Manage Feeding Records</h3>
+      <p>Log feeding schedules</p>
+    </a>
+  </nav>
+
+  <footer>
+    <p>Poultry Inventory Management System &copy; 2025</p>
+  </footer>
+</body>
+</html>
